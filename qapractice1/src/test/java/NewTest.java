@@ -20,6 +20,15 @@ public class NewTest {
 	  test.isExist(5);
   }
   
+  @Test
+  public void test(){
+	  
+	  LocationBuilt location = LocationObjectMother.newyorkcity();
+	  
+  }
+  
+  
+  
   @BeforeTest
   public void beforeTest() {
   }
