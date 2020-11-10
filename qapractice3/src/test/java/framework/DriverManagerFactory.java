@@ -10,6 +10,10 @@ public class DriverManagerFactory {
 		{
 			driverManager = new FirefoxDriverManager();
 		}
+		else if (type.equalsIgnoreCase("CHROME"))
+		{
+			driverManager = new ChromeDriverManager();
+		}
 		
 		
 		
