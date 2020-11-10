@@ -11,7 +11,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class InputPageTest extends TheInternetTestBase {
-	WebDriver driver;
 
 	@Test
 	public void tc21canInputInteger() {
@@ -20,7 +19,7 @@ public class InputPageTest extends TheInternetTestBase {
 		int expectedInput = 100;
 
 		//Act
-		int selectedInput = new InputPage(webDriver, baseUrl)
+		int selectedInput = new InputPage(driver, baseUrl)
 				.navigate()
 				.setInteger(expectedInput)
 				.getInteger();
@@ -34,7 +33,7 @@ public class InputPageTest extends TheInternetTestBase {
 	public void beforeTest() {
 		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\mikel\\OneDrive\\Desktop\\geckodriver.exe");
 		//driver = new FirefoxDriver();
-		super.beforeTest();
+		super.beforeTest("firefox");
 	}
 
 	@AfterTest

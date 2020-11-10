@@ -14,11 +14,10 @@ public class DropdownPageTest extends TheInternetTestBase{
 	@Test
 	public void tc8canSelectDropdownListItem() {
 		//Arrange
-		//String url = "http://the-internet.herokuapp.com/";
 		String expectedSelection = "Option 2";
 
 		//Act
-		String selectedOption = new DropdownPage(webDriver, baseUrl)
+		String selectedOption = new DropdownPage(driver, baseUrl)
 				.navigate()
 				.select(expectedSelection)
 				.getOption();
@@ -29,15 +28,12 @@ public class DropdownPageTest extends TheInternetTestBase{
 
 	@BeforeTest
 	public void beforeTest() {
-		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\mikel\\OneDrive\\Desktop\\geckodriver.exe");
-		//driver = new FirefoxDriver();
-		super.beforeTest();
+		super.beforeTest("firefox");
 	}
 
 	@AfterTest
 	public void afterTest() {
 		super.afterTest();
-		//driver.quit();
 	}
 
 }
