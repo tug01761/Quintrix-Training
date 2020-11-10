@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-06T21:54:51 EST" name="Default suite" finished-at="2020-11-06T21:54:55 EST" duration-ms="4255">
+  <suite started-at="2020-11-09T19:07:09 EST" name="Default suite" finished-at="2020-11-09T19:07:14 EST" duration-ms="4546">
     <groups>
     </groups>
-    <test started-at="2020-11-06T21:54:51 EST" name="Default test" finished-at="2020-11-06T21:54:55 EST" duration-ms="4255">
-      <class name="theInternet.tests.InputPageTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:theInternet.tests.InputPageTest@2ddc8ecb]" started-at="2020-11-06T21:54:51 EST" name="beforeTest" finished-at="2020-11-06T21:54:54 EST" duration-ms="3028" status="PASS">
+    <test started-at="2020-11-09T19:07:09 EST" name="Default test" finished-at="2020-11-09T19:07:14 EST" duration-ms="4546">
+      <class name="theInternet.tests.DropdownPageTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:theInternet.tests.DropdownPageTest@29176cc1]" started-at="2020-11-09T19:07:09 EST" name="beforeTest" finished-at="2020-11-09T19:07:12 EST" duration-ms="3097" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="tc21canInputInteger()[pri:0, instance:theInternet.tests.InputPageTest@2ddc8ecb]" started-at="2020-11-06T21:54:54 EST" name="tc21canInputInteger" finished-at="2020-11-06T21:54:54 EST" duration-ms="486" status="PASS">
+        <test-method signature="tc8canSelectDropdownListItem()[pri:0, instance:theInternet.tests.DropdownPageTest@29176cc1]" started-at="2020-11-09T19:07:12 EST" name="tc8canSelectDropdownListItem" finished-at="2020-11-09T19:07:13 EST" duration-ms="698" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc21canInputInteger -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:theInternet.tests.InputPageTest@2ddc8ecb]" started-at="2020-11-06T21:54:54 EST" name="afterTest" finished-at="2020-11-06T21:54:55 EST" duration-ms="716" status="PASS">
+        </test-method> <!-- tc8canSelectDropdownListItem -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:theInternet.tests.DropdownPageTest@29176cc1]" started-at="2020-11-09T19:07:13 EST" name="afterTest" finished-at="2020-11-09T19:07:14 EST" duration-ms="723" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- theInternet.tests.InputPageTest -->
+      </class> <!-- theInternet.tests.DropdownPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
