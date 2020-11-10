@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="theInternet.tests.InputPageTest">
+      <class name="theInternet.tests.DropdownPageTest">
         <methods>
-          <include name="tc21canInputTextBox"/>
-          <include name="beforeTest"/>
           <include name="afterTest"/>
+          <include name="tc8canSelectDropdownListItem"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- theInternet.tests.InputPageTest -->
+      </class> <!-- theInternet.tests.DropdownPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
