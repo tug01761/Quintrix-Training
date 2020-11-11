@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="theInternet.tests.DropdownPageTest">
+      <class name="theInternet.tests.AddRemoveElementsPageTest">
         <methods>
+          <include name="tc1canAddElements"/>
           <include name="afterTest"/>
-          <include name="tc8canSelectDropdownListItem"/>
           <include name="beforeTest"/>
         </methods>
-      </class> <!-- theInternet.tests.DropdownPageTest -->
+      </class> <!-- theInternet.tests.AddRemoveElementsPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

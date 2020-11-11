@@ -1,5 +1,9 @@
 package framework;
 
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -11,7 +15,14 @@ public class FirefoxDriverManager extends DriverManager {
 	public WebDriver startService() {
 		if (firefoxDriver == null)
 		{
-			System.setProperty("webdriver.gecko.driver", "D:\\Eclipse Workspace\\Quintrix-Training\\qapractice3\\target\\test-classes\\geckodriver.exe");
+			try {
+			URL url = ClassLoader.getSystemResource("geckodriver.exe");
+			Paths.get(url.toURI()).toString();
+            System.setProperty("webdriver.gecko.driver", Paths.get(url.toURI()).toString());
+			}
+            catch (URISyntaxException e) {
+            	e.printStackTrace();
+            }
 			firefoxDriver = new FirefoxDriver();
 		}
 		return firefoxDriver;
