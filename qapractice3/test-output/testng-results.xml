@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-06T21:54:51 EST" name="Default suite" finished-at="2020-11-06T21:54:55 EST" duration-ms="4255">
+  <suite started-at="2020-11-10T21:00:00 EST" name="Default suite" finished-at="2020-11-10T21:00:05 EST" duration-ms="4598">
     <groups>
     </groups>
-    <test started-at="2020-11-06T21:54:51 EST" name="Default test" finished-at="2020-11-06T21:54:55 EST" duration-ms="4255">
-      <class name="theInternet.tests.InputPageTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:theInternet.tests.InputPageTest@2ddc8ecb]" started-at="2020-11-06T21:54:51 EST" name="beforeTest" finished-at="2020-11-06T21:54:54 EST" duration-ms="3028" status="PASS">
+    <test started-at="2020-11-10T21:00:00 EST" name="Default test" finished-at="2020-11-10T21:00:05 EST" duration-ms="4598">
+      <class name="theInternet.tests.AddRemoveElementsPageTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:theInternet.tests.AddRemoveElementsPageTest@15b204a1]" started-at="2020-11-10T21:00:00 EST" name="beforeTest" finished-at="2020-11-10T21:00:04 EST" duration-ms="3524" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="tc21canInputInteger()[pri:0, instance:theInternet.tests.InputPageTest@2ddc8ecb]" started-at="2020-11-06T21:54:54 EST" name="tc21canInputInteger" finished-at="2020-11-06T21:54:54 EST" duration-ms="486" status="PASS">
+        <test-method signature="tc1canRemoveElements()[pri:0, instance:theInternet.tests.AddRemoveElementsPageTest@15b204a1]" started-at="2020-11-10T21:00:04 EST" name="tc1canRemoveElements" finished-at="2020-11-10T21:00:04 EST" duration-ms="463" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc21canInputInteger -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:theInternet.tests.InputPageTest@2ddc8ecb]" started-at="2020-11-06T21:54:54 EST" name="afterTest" finished-at="2020-11-06T21:54:55 EST" duration-ms="716" status="PASS">
+        </test-method> <!-- tc1canRemoveElements -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:theInternet.tests.AddRemoveElementsPageTest@15b204a1]" started-at="2020-11-10T21:00:04 EST" name="afterTest" finished-at="2020-11-10T21:00:05 EST" duration-ms="589" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- theInternet.tests.InputPageTest -->
+      </class> <!-- theInternet.tests.AddRemoveElementsPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

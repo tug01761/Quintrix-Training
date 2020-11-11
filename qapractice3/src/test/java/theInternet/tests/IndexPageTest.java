@@ -11,7 +11,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class IndexPageTest extends TheInternetTestBase{
-	WebDriver driver;
 	
 	@Test
 	public void canNavigateToIndexPage() {
@@ -20,7 +19,7 @@ public class IndexPageTest extends TheInternetTestBase{
 		String expectedPageTitle = "The Internet";
 
 		//Act
-		String actualPageTitle = new IndexPage(webDriver, baseUrl)
+		String actualPageTitle = new IndexPage(driver, baseUrl)
 				.navigate()
 				.getTitle();
 
@@ -33,7 +32,7 @@ public class IndexPageTest extends TheInternetTestBase{
 	public void beforeTest() {
 		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\mikel\\OneDrive\\Desktop\\geckodriver.exe");
 		//driver = new FirefoxDriver();
-		super.beforeTest();
+		super.beforeTest("firefox");
 	}
 
 	@AfterTest

@@ -20,7 +20,7 @@ public class CheckboxPageTest extends TheInternetTestBase {
 		Boolean expectedInput = true;
 
 		//Act
-		Boolean selectedInput = new CheckboxPage(webDriver, baseUrl)
+		Boolean selectedInput = new CheckboxPage(driver, baseUrl)
 				.navigate()
 				.check()
 				.getStatus();
@@ -34,7 +34,7 @@ public class CheckboxPageTest extends TheInternetTestBase {
 	public void beforeTest() {
 		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\mikel\\OneDrive\\Desktop\\geckodriver.exe");
 		//driver = new FirefoxDriver();
-		super.beforeTest();
+		super.beforeTest("firefox");
 	}
 
 	@AfterTest
