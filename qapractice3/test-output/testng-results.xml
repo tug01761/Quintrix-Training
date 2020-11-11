@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-10T21:00:00 EST" name="Default suite" finished-at="2020-11-10T21:00:05 EST" duration-ms="4598">
+  <suite started-at="2020-11-10T21:41:36 EST" name="Default suite" finished-at="2020-11-10T21:41:40 EST" duration-ms="4038">
     <groups>
     </groups>
-    <test started-at="2020-11-10T21:00:00 EST" name="Default test" finished-at="2020-11-10T21:00:05 EST" duration-ms="4598">
-      <class name="theInternet.tests.AddRemoveElementsPageTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:theInternet.tests.AddRemoveElementsPageTest@15b204a1]" started-at="2020-11-10T21:00:00 EST" name="beforeTest" finished-at="2020-11-10T21:00:04 EST" duration-ms="3524" status="PASS">
+    <test started-at="2020-11-10T21:41:36 EST" name="Default test" finished-at="2020-11-10T21:41:40 EST" duration-ms="4038">
+      <class name="theInternet.tests.BasicAuthPageTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:theInternet.tests.BasicAuthPageTest@61dd025]" started-at="2020-11-10T21:41:36 EST" name="beforeTest" finished-at="2020-11-10T21:41:39 EST" duration-ms="2996" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="tc1canRemoveElements()[pri:0, instance:theInternet.tests.AddRemoveElementsPageTest@15b204a1]" started-at="2020-11-10T21:00:04 EST" name="tc1canRemoveElements" finished-at="2020-11-10T21:00:04 EST" duration-ms="463" status="PASS">
+        <test-method signature="canAccessPage()[pri:0, instance:theInternet.tests.BasicAuthPageTest@61dd025]" started-at="2020-11-10T21:41:39 EST" name="canAccessPage" finished-at="2020-11-10T21:41:40 EST" duration-ms="299" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tc1canRemoveElements -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:theInternet.tests.AddRemoveElementsPageTest@15b204a1]" started-at="2020-11-10T21:00:04 EST" name="afterTest" finished-at="2020-11-10T21:00:05 EST" duration-ms="589" status="PASS">
+        </test-method> <!-- canAccessPage -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:theInternet.tests.BasicAuthPageTest@61dd025]" started-at="2020-11-10T21:41:40 EST" name="afterTest" finished-at="2020-11-10T21:41:40 EST" duration-ms="717" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- theInternet.tests.AddRemoveElementsPageTest -->
+      </class> <!-- theInternet.tests.BasicAuthPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
