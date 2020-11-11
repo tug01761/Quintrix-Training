@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class BasicAuthPageTest extends TheInternetTestBase {
+	
 	@Test
 	public void canAccessPage() {
 		//Arrange
