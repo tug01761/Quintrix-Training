@@ -3,6 +3,7 @@ package theInternet.tests;
 import org.testng.annotations.Test;
 
 import theInternet.foundation.TheInternetTestBase;
+import theInternet.pages.AddRemoveElementsPage;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;

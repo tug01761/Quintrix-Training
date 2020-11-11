@@ -1,4 +1,4 @@
-package theInternet.tests;
+package theInternet.pages;
 
 
 import org.openqa.selenium.By;
