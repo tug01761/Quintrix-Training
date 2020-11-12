@@ -12,7 +12,7 @@ import org.testng.annotations.AfterTest;
 public class FormAuthenticationPageTest extends TheInternetTestBase {
 
 	@Test
-	public void tc1canAddElements() {
+	public void canGetIntoSecuredPage() {
 		//Arrange
 		String expectedSelection = "http://the-internet.herokuapp.com/secure";
 
