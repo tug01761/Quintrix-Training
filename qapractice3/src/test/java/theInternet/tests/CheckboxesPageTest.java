@@ -3,7 +3,6 @@ package theInternet.tests;
 import org.testng.annotations.Test;
 
 import theInternet.foundation.TheInternetTestBase;
-import theInternet.pages.BasicAuthPage;
 import theInternet.pages.CheckboxesPage;
 
 import org.testng.annotations.BeforeTest;
