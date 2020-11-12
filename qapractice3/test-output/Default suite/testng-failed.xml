@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="theInternet.tests.KeyPressesPageTest">
+      <class name="theInternet.tests.HoversPageTest">
         <methods>
           <include name="beforeTest"/>
-          <include name="afterTest"/>
           <include name="canAccessPage"/>
+          <include name="afterTest"/>
         </methods>
-      </class> <!-- theInternet.tests.KeyPressesPageTest -->
+      </class> <!-- theInternet.tests.HoversPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

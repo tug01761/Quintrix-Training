@@ -1,25 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-11T20:19:50 EST" name="Default suite" finished-at="2020-11-11T20:19:55 EST" duration-ms="4301">
+  <suite started-at="2020-11-11T22:39:54 EST" name="Default suite" finished-at="2020-11-11T22:39:59 EST" duration-ms="4005">
     <groups>
     </groups>
-    <test started-at="2020-11-11T20:19:50 EST" name="Default test" finished-at="2020-11-11T20:19:55 EST" duration-ms="4301">
-      <class name="theInternet.tests.RedirectLinkPageTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:theInternet.tests.RedirectLinkPageTest@61dd025]" started-at="2020-11-11T20:19:50 EST" name="beforeTest" finished-at="2020-11-11T20:19:53 EST" duration-ms="3046" status="PASS">
+    <test started-at="2020-11-11T22:39:54 EST" name="Default test" finished-at="2020-11-11T22:39:59 EST" duration-ms="4005">
+      <class name="theInternet.tests.HoversPageTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:theInternet.tests.HoversPageTest@61dd025]" started-at="2020-11-11T22:39:54 EST" name="beforeTest" finished-at="2020-11-11T22:39:58 EST" duration-ms="3005" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="canAccessPage()[pri:0, instance:theInternet.tests.RedirectLinkPageTest@61dd025]" started-at="2020-11-11T20:19:53 EST" name="canAccessPage" finished-at="2020-11-11T20:19:54 EST" duration-ms="529" status="PASS">
+        <test-method signature="canAccessPage()[pri:0, instance:theInternet.tests.HoversPageTest@61dd025]" started-at="2020-11-11T22:39:58 EST" name="canAccessPage" finished-at="2020-11-11T22:39:58 EST" duration-ms="391" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [http://the-internet.herokuapp.com/users/1] but found [http://the-internet.herokuapp.com/hovers]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [http://the-internet.herokuapp.com/users/1] but found [http://the-internet.herokuapp.com/hovers]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at org.testng.Assert.assertEquals(Assert.java:639)
+at theInternet.tests.HoversPageTest.canAccessPage(HoversPageTest.java:26)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- canAccessPage -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:theInternet.tests.RedirectLinkPageTest@61dd025]" started-at="2020-11-11T20:19:54 EST" name="afterTest" finished-at="2020-11-11T20:19:55 EST" duration-ms="701" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:theInternet.tests.HoversPageTest@61dd025]" started-at="2020-11-11T22:39:58 EST" name="afterTest" finished-at="2020-11-11T22:39:59 EST" duration-ms="579" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- theInternet.tests.RedirectLinkPageTest -->
+      </class> <!-- theInternet.tests.HoversPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
