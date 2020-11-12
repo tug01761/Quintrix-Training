@@ -3,29 +3,28 @@ package theInternet.tests;
 import org.testng.annotations.Test;
 
 import theInternet.foundation.TheInternetTestBase;
-import theInternet.pages.InputPage;
+import theInternet.pages.BasicAuthPage;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
-public class InputPageTest extends TheInternetTestBase {
+public class BasicAuthPageTest extends TheInternetTestBase {
 
 	@Test
-	public void tc21canInputInteger() {
+	public void canAccessPage() {
 		//Arrange
-		int expectedInput = 100;
+		String successText = "Congratulations! You must have the proper credentials.";
 
 		//Act
-		int selectedInput = new InputPage(driver, baseUrl)
+		String pageSource = new BasicAuthPage(driver, baseUrl)
 				.navigate()
-				.setInteger(expectedInput)
-				.getInteger();
-
+				.getPageSource();
 
 		//Assert
-		Assert.assertEquals(selectedInput, expectedInput);
+		Assert.assertTrue(pageSource.contains(successText));
 	}
+
 
 	@BeforeTest
 	public void beforeTest() {

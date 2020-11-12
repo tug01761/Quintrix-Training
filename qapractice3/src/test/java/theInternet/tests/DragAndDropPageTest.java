@@ -3,29 +3,29 @@ package theInternet.tests;
 import org.testng.annotations.Test;
 
 import theInternet.foundation.TheInternetTestBase;
-import theInternet.pages.InputPage;
+import theInternet.pages.DragAndDropPage;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
-public class InputPageTest extends TheInternetTestBase {
-
+public class DragAndDropPageTest extends TheInternetTestBase{
+	
 	@Test
-	public void tc21canInputInteger() {
+	public void canAccessPage() {
 		//Arrange
-		int expectedInput = 100;
+		String expectedSelection = "You selected a context menu";
 
 		//Act
-		int selectedInput = new InputPage(driver, baseUrl)
+		String selectedOption = new DragAndDropPage(driver, baseUrl)
 				.navigate()
-				.setInteger(expectedInput)
-				.getInteger();
-
+				.dragAndDrop()
+				.getResult();
 
 		//Assert
-		Assert.assertEquals(selectedInput, expectedInput);
+		Assert.assertEquals(selectedOption, expectedSelection);
 	}
+
 
 	@BeforeTest
 	public void beforeTest() {

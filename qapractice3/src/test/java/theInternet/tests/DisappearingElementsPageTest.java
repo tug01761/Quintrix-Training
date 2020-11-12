@@ -3,29 +3,28 @@ package theInternet.tests;
 import org.testng.annotations.Test;
 
 import theInternet.foundation.TheInternetTestBase;
-import theInternet.pages.InputPage;
+import theInternet.pages.DisappearingElementsPage;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
-public class InputPageTest extends TheInternetTestBase {
+public class DisappearingElementsPageTest extends TheInternetTestBase{
 
 	@Test
-	public void tc21canInputInteger() {
+	public void canRefreshPage() {
 		//Arrange
-		int expectedInput = 100;
+		String expectedSelection = "Gallery";
 
 		//Act
-		int selectedInput = new InputPage(driver, baseUrl)
+		String selectedOption = new DisappearingElementsPage(driver, baseUrl)
 				.navigate()
-				.setInteger(expectedInput)
-				.getInteger();
-
+				.refreshPage();
 
 		//Assert
-		Assert.assertEquals(selectedInput, expectedInput);
+		Assert.assertEquals(selectedOption, expectedSelection);
 	}
+
 
 	@BeforeTest
 	public void beforeTest() {
