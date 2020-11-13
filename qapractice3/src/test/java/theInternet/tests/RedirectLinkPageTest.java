@@ -29,7 +29,7 @@ public class RedirectLinkPageTest extends TheInternetTestBase{
 
 	@BeforeTest
 	public void beforeTest() {
-		super.beforeTest("firefox");
+		super.beforeTest();
 	}
 
 	@AfterTest

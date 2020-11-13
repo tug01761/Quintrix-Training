@@ -29,7 +29,7 @@ public class JQueryUIMenusPageTest extends TheInternetTestBase{
 
 	@BeforeTest
 	public void beforeTest() {
-		super.beforeTest("firefox");
+		super.beforeTest();
 	}
 
 	@AfterTest

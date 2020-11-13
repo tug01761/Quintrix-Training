@@ -28,7 +28,7 @@ public class FormAuthenticationPageTest extends TheInternetTestBase {
 
 	@BeforeTest
 	public void beforeTest() {
-		super.beforeTest("chrome");
+		super.beforeTest();
 	}
 
 	@AfterTest
