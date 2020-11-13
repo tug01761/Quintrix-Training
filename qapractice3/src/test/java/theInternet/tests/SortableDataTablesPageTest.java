@@ -24,6 +24,20 @@ public class SortableDataTablesPageTest extends TheInternetTestBase{
 		//Assert
 		Assert.assertEquals(actualText, expectedText);
 	}
+	
+	@Test
+	public void canGetTableCellContents2() {
+		//Arrange
+		String expectedText = "jdoe@hotmail.com";
+
+		//Act
+		String actualText = new SortableDataTablesPage(driver, baseUrl)
+				.navigate()
+				.getEmailForUserTableRow3();
+
+		//Assert
+		Assert.assertEquals(actualText, expectedText);
+	}
 
 
 	@BeforeTest

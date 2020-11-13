@@ -29,4 +29,10 @@ public class SortableDataTablesPage extends PageObjectBase{
 		
 		return text;
 	}
+	
+	public String getEmailForUserTableRow3() {
+		String text = new TableControlExtension(table1Element, driver).getRow(3).getCell("Email").getText();
+		
+		return text;
+	}
 }
