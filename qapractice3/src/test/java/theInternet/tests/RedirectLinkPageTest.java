@@ -20,7 +20,7 @@ public class RedirectLinkPageTest extends TheInternetTestBase{
 		String selectedOption = new RedirectLinkPage(driver, baseUrl)
 				.navigate()
 				.redirect()
-				.getPage();
+				.getPageURL();
 
 		//Assert
 		Assert.assertEquals(selectedOption, expectedSelection);

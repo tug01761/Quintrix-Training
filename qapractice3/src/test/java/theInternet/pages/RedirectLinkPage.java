@@ -20,15 +20,11 @@ public class RedirectLinkPage extends PageObjectBase{
 		return this;
 	}
 	
-	public RedirectLinkPage redirect() {
+	public RedirectLinkResultPage redirect() {
+		RedirectLinkResultPage resultPage = new RedirectLinkResultPage(driver, baseUrl);
 		redirectHyperLink.click();
-		return this;
+		return resultPage;
 	}
-	
-	public String getPage() {
-		String url = driver.getCurrentUrl();
-		
-		return url;
-	}
+
 
 }
