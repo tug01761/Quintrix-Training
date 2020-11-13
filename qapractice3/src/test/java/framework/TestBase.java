@@ -10,17 +10,16 @@ public abstract class TestBase {
 	protected WebDriver driver;
 	protected String baseUrl;
 	
-	protected void beforeTest(String type) {
-		LoadConfigurations(type);
+	protected void beforeTest() {
+		LoadConfigurations();
 	}
 	
 	protected void afterTest() {
 		this.driverManager.stopService();
 	}
 	
-	private void LoadConfigurations(String type) {
-		driverManager = DriverManagerFactory.getManager(type);
-		driver = driverManager.startService();
+	private void LoadConfigurations() {
+		
 		
 		HashMap<String, String> configs = null;
 		
@@ -29,6 +28,9 @@ public abstract class TestBase {
 		} catch (IOException e) {
 			throw new RuntimeException("Config file does not exist.");
 		}
+		
+		driverManager = DriverManagerFactory.getManager(configs.get(ConfigurationParameters.Firefox));
+		driver = driverManager.startService();
 
 		this.baseUrl = configs.get(ConfigurationParameters.Url);		
 	}

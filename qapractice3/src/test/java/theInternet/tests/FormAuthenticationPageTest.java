@@ -3,29 +3,28 @@ package theInternet.tests;
 import org.testng.annotations.Test;
 
 import theInternet.foundation.TheInternetTestBase;
-import theInternet.pages.RedirectLinkPage;
+import theInternet.pages.FormAuthenticationLoginPage;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
-public class RedirectLinkPageTest extends TheInternetTestBase{
+public class FormAuthenticationPageTest extends TheInternetTestBase {
 
 	@Test
-	public void canAccessPage() {
+	public void canGetIntoSecuredPage() {
 		//Arrange
-		String expectedSelection = ("http://the-internet.herokuapp.com/status_codes");
+		String expectedSelection = "http://the-internet.herokuapp.com/secure";
 
 		//Act
-		String selectedOption = new RedirectLinkPage(driver, baseUrl)
+		String selectedOption = new FormAuthenticationLoginPage(driver, baseUrl)
 				.navigate()
-				.redirect()
-				.getPageURL();
+				.login()
+				.getSecuredPage();
 
 		//Assert
 		Assert.assertEquals(selectedOption, expectedSelection);
 	}
-
 
 	@BeforeTest
 	public void beforeTest() {

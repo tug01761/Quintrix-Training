@@ -14,13 +14,10 @@ public class HoversPage extends PageObjectBase{
 		super(driver, url);
 	}
 
-	@FindBy(className="figure")
+	@FindBy(xpath="//[@id='content']/div/div[%s]/img,2")
 	WebElement hoverObject;
-	//@FindBy(xpath="//img[@alt='User Avatar'])[2]")
-
-
-	//@FindBy(xpath="//a[@href='/users/1']")
-	//WebElement redirectLink;
+	
+	String redirectLinkText = "//[@id='content']/div/div[%s]/div/a,2";
 
 	public HoversPage navigate() {
 		super.navigate("/hovers");
@@ -29,14 +26,11 @@ public class HoversPage extends PageObjectBase{
 
 	public HoversPage hoverObject() {
 		Actions action = new Actions(driver);
-
-		action.moveToElement(hoverObject);
-		String redirectLink = driver.findElement(By.xpath("//div[@class='figcaption']/a")).getAttribute("href");
-		System.out.println(redirectLink);
-		//action.moveToElement(redirectLink);
-		//action.click();
-		//action.perform();
-
+		
+		action.moveToElement(hoverObject).perform();
+		WebElement redirectLink = driver.findElement(By.xpath(redirectLinkText));
+		redirectLink.click();
+		
 		return this;
 	}
 

@@ -46,7 +46,7 @@ public class AddRemoveElementsPageTest extends TheInternetTestBase{
 
 	@BeforeTest
 	public void beforeTest() {
-		super.beforeTest("chrome");
+		super.beforeTest();
 	}
 
 	@AfterTest

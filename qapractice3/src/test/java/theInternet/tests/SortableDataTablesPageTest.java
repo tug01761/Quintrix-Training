@@ -3,27 +3,26 @@ package theInternet.tests;
 import org.testng.annotations.Test;
 
 import theInternet.foundation.TheInternetTestBase;
-import theInternet.pages.RedirectLinkPage;
+import theInternet.pages.SortableDataTablesPage;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
-public class RedirectLinkPageTest extends TheInternetTestBase{
+public class SortableDataTablesPageTest extends TheInternetTestBase{
 
 	@Test
-	public void canAccessPage() {
+	public void canGetTableCellContents() {
 		//Arrange
-		String expectedSelection = ("http://the-internet.herokuapp.com/status_codes");
+		String expectedText = "$50.00";
 
 		//Act
-		String selectedOption = new RedirectLinkPage(driver, baseUrl)
+		String actualText = new SortableDataTablesPage(driver, baseUrl)
 				.navigate()
-				.redirect()
-				.getPageURL();
+				.getAmountDueForUserTableRow1();
 
 		//Assert
-		Assert.assertEquals(selectedOption, expectedSelection);
+		Assert.assertEquals(actualText, expectedText);
 	}
 
 
@@ -36,5 +35,4 @@ public class RedirectLinkPageTest extends TheInternetTestBase{
 	public void afterTest() {
 		super.afterTest();
 	}
-
 }

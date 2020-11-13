@@ -14,7 +14,7 @@ public class HoversPageTest extends TheInternetTestBase{
 	@Test
 	public void canAccessPage() {
 		//Arrange
-		String expectedSelection = ("http://the-internet.herokuapp.com/users/1");
+		String expectedSelection = ("http://the-internet.herokuapp.com/users/2");
 
 		//Act
 		String selectedOption = new HoversPage(driver, baseUrl)
@@ -29,7 +29,7 @@ public class HoversPageTest extends TheInternetTestBase{
 
 	@BeforeTest
 	public void beforeTest() {
-		super.beforeTest("firefox");
+		super.beforeTest();
 	}
 
 	@AfterTest
