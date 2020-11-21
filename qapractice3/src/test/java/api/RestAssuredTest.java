@@ -3,6 +3,7 @@ package api;
 import static io.restassured.RestAssured.*;
 
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,7 +12,11 @@ import java.util.Map;
 
 import org.testng.annotations.Test;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.json.simple.JSONObject;
+import org.junit.Assert;
 
 
 
@@ -97,6 +102,27 @@ public class RestAssuredTest extends FunctionalTest{
 		.assertThat()
 		.body("updatedAt", equalTo(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").format(new Date())));
 	
+		
+	}
+	
+	@Test
+	public void GetDataIntoObject() {
+
+		double actualID = 2.0;
+		String actualEmail = "janet.weaver@reqres.in";
+		String actualFirstName = "Janet";
+		String actualLastname = "Weaver";
+		String actualAvatar = "https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg";
+		
+		SingleUserSuccessResponse test = given().when(). get(basePath + "/api/users/2").as(SingleUserSuccessResponse.class);
+		
+
+		Assert.assertEquals(test.data.get("id"), actualID);
+		Assert.assertEquals(test.data.get("email"), actualEmail);
+		Assert.assertEquals(test.data.get("first_name"), actualFirstName);
+		Assert.assertEquals(test.data.get("last_name"), actualLastname);
+		Assert.assertEquals(test.data.get("avatar"), actualAvatar);
+		
 		
 	}
 	
