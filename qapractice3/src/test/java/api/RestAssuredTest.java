@@ -3,7 +3,6 @@ package api;
 import static io.restassured.RestAssured.*;
 
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,8 +11,6 @@ import java.util.Map;
 
 import org.testng.annotations.Test;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.simple.JSONObject;
 import org.junit.Assert;
@@ -124,6 +121,24 @@ public class RestAssuredTest extends FunctionalTest{
 		Assert.assertEquals(test.data.get("avatar"), actualAvatar);
 		
 		
+	}
+	
+	@Test
+	public void GetDataIntoListObject() {
+		
+		ListUserSuccessResponse test = given().when(). get(basePath + "/api/users?page=2").as(ListUserSuccessResponse.class);
+		
+		double actualID = 9.0;
+		String actualEmail = "tobias.funke@reqres.in";
+		String actualFirstName = "Tobias";
+		String actualLastname = "Funke";
+		String actualAvatar = "https://s3.amazonaws.com/uifaces/faces/twitter/vivekprvr/128.jpg";
+		
+		Assert.assertEquals(test.data.get(2).get("id"), actualID);
+		Assert.assertEquals(test.data.get(2).get("email"), actualEmail);
+		Assert.assertEquals(test.data.get(2).get("first_name"), actualFirstName);
+		Assert.assertEquals(test.data.get(2).get("last_name"), actualLastname);
+		Assert.assertEquals(test.data.get(2).get("avatar"), actualAvatar);
 	}
 	
 }
