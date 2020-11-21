@@ -1,3 +1,5 @@
+package api;
+
 import static io.restassured.RestAssured.*;
 
 import static org.hamcrest.Matchers.*;
@@ -50,7 +52,7 @@ public class RestAssuredTest extends FunctionalTest{
 		given().
 		body(request.toString()).
 		when().
-		delete("https://reqres.in/api/users/2").
+		delete(basePath + "/api/users/2").
 		then().assertThat().statusCode(204);
 
 		//HTTP 204 - No Content

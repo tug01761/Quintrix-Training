@@ -1,3 +1,5 @@
+package api;
+
 import org.testng.annotations.BeforeClass;
 
 import io.restassured.RestAssured;
