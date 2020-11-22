@@ -7,10 +7,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import com.google.common.base.Function;
 
@@ -40,7 +38,7 @@ public class DynamicControlsPage extends PageObjectBase {
 
 	public DynamicControlsPage setText() {
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(10, TimeUnit.SECONDS)
+				.withTimeout(30, TimeUnit.SECONDS)
 				.pollingEvery(5, TimeUnit.SECONDS) 
 				.ignoring(NoSuchElementException.class);
 
