@@ -55,8 +55,8 @@ public class MySQLTest {
 
 		int expectedRowChanges = 4;
 		int rowChanges = 0;
-		
-		
+
+
 		try {
 			rowChanges += database.insertStoreToTable();
 			rowChanges += database.updateCurrentDate();

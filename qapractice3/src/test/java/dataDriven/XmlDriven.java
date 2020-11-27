@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,9 +21,9 @@ import org.xml.sax.SAXException;
 public class XmlDriven {
 
 
-	public void convertXMLToStudent() {
+	public List<Student> convertXMLToStudent() {
 
-		Student student;
+		List<Student> studentList = new ArrayList<Student>();
 
 		String f_name = "";
 		String l_name = "";
@@ -64,13 +66,13 @@ public class XmlDriven {
 					l_name = eElement1.getElementsByTagName("l_name").item(0).getTextContent(); 
 					gender = eElement1.getElementsByTagName("gender").item(0).getTextContent();
 
-					
+
 					for(int j = 0; j < eElement1.getElementsByTagName("subject").getLength(); j++)
 					{
 						String subject = eElement1.getElementsByTagName("subject").item(j).getTextContent();
 						subjects += ", " + subject;
 					}
-					
+
 					newSubjects = subjects.substring(0,0)+""+subjects.substring(2);
 
 					try {
@@ -92,7 +94,7 @@ public class XmlDriven {
 					state = eElement1.getElementsByTagName("state").item(0).getTextContent();
 					city = eElement1.getElementsByTagName("city").item(0).getTextContent();
 				} 
-				
+
 
 				if (node2.getNodeType() == Node.ELEMENT_NODE)   
 				{  
@@ -103,11 +105,11 @@ public class XmlDriven {
 					String year =  eElement2.getAttribute("year");
 
 					dob = day + " " + month + " " + year;
-					
+
 					String Old_Format = "dd MMMM yyyy";
 					String New_Format = "MM/dd/yyyy";
-					
-					
+
+
 
 					SimpleDateFormat sdf = new SimpleDateFormat(Old_Format);
 
@@ -115,7 +117,7 @@ public class XmlDriven {
 						Date d = sdf.parse(dob);
 						sdf.applyPattern(New_Format);
 						newDateString = sdf.format(d);
-						
+
 					} catch (ParseException e) {
 						e.printStackTrace();
 					}
@@ -129,31 +131,13 @@ public class XmlDriven {
 
 					String mobileNumberWithDashLine = eElement3.getTextContent();
 					mobileNumber = mobileNumberWithDashLine.replaceAll("-", "");
-					
+
 				} 
-				
 
+				Student student = new Student(f_name, l_name, email, gender, mobileNumber, newDateString, newSubjects, hobbies, address, state, city);
 
-				
-				System.out.println(f_name);
-				System.out.println(l_name);
-				System.out.println(email);
-				System.out.println(gender);
-				System.out.println(mobileNumber);
-				System.out.println(newDateString);
-				System.out.println(newSubjects);
-				System.out.println(hobbies);
-				System.out.println(address);
-				System.out.println(state);
-				System.out.println(city);
-				System.out.println("----------------------------");
-				
-				student = new Student(f_name, l_name, email, gender, mobileNumber, newDateString, newSubjects, hobbies, address, state, city);
-
+				studentList.add(student);
 			}
-
-
-
 
 
 
@@ -167,6 +151,8 @@ public class XmlDriven {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		return studentList;
 	}
 
 }
