@@ -1,4 +1,4 @@
-package theInternet.foundation;
+package dataDriven;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -8,8 +8,8 @@ import framework.ConfigurationReader;
 import framework.DriverManagerFactory;
 import framework.TestBase;
 
-public class TheInternetTestBase extends TestBase{
-
+public class DataDrivenTestBase extends TestBase{
+	
 	@Override
 	protected void LoadConfigurations() {
 
@@ -25,6 +25,7 @@ public class TheInternetTestBase extends TestBase{
 		driverManager = DriverManagerFactory.getManager(configs.get(ConfigurationParameters.Firefox));
 		driver = driverManager.startService();
 
-		this.baseUrl = configs.get(ConfigurationParameters.UrlTheInternet);		
+		this.baseUrl = configs.get(ConfigurationParameters.UrlDataDriven);		
 	}
+
 }

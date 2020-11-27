@@ -1,8 +1,5 @@
 package framework;
 
-import java.io.IOException;
-import java.util.HashMap;
-
 import org.openqa.selenium.WebDriver;
 
 public abstract class TestBase {
@@ -18,21 +15,10 @@ public abstract class TestBase {
 		this.driverManager.stopService();
 	}
 	
-	private void LoadConfigurations() {
+	protected void LoadConfigurations() {
 		
-		
-		HashMap<String, String> configs = null;
-		
-		try {
-			configs = new ConfigurationReader().getPropertiesFromResourceFile("config.properties");
-		} catch (IOException e) {
-			throw new RuntimeException("Config file does not exist.");
-		}
-		
-		driverManager = DriverManagerFactory.getManager(configs.get(ConfigurationParameters.Firefox));
-		driver = driverManager.startService();
-
-		this.baseUrl = configs.get(ConfigurationParameters.Url);		
+			
 	}
+	
 
 }

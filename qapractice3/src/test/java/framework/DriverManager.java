@@ -6,7 +6,7 @@ public abstract class DriverManager {
 	
 	protected WebDriver driver;
 	
-	protected abstract WebDriver startService();
+	public abstract WebDriver startService();
 	
 	protected abstract void stopService();
 	

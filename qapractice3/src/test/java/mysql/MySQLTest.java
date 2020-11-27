@@ -55,8 +55,8 @@ public class MySQLTest {
 
 		int expectedRowChanges = 4;
 		int rowChanges = 0;
-		
-		
+
+
 		try {
 			rowChanges += database.insertStoreToTable();
 			rowChanges += database.updateCurrentDate();
@@ -72,7 +72,7 @@ public class MySQLTest {
 	@BeforeTest
 	public void beforeTest() {
 		try {
-			database.connectToDB();
+			database.connectToDB("sakila");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

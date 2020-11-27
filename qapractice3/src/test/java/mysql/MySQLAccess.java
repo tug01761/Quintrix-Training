@@ -1,8 +1,13 @@
 package mysql;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import dataDriven.Student;
 
 
 public class MySQLAccess {
@@ -11,14 +16,14 @@ public class MySQLAccess {
 	private Statement statement;
 	private ResultSet resultSet;
 
-	public void connectToDB() throws Exception {
+	public void connectToDB(String server) throws Exception {
 		try {
 			// register Oracle thin driver with DriverManager service
 			// It is optional for JDBC4.x version
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// variables
-			final String url = "jdbc:mysql:///sakila";
+			final String url = "jdbc:mysql:///" + server;
 			final String user = "root";
 			final String password = "totot6244230";
 
@@ -256,6 +261,159 @@ public class MySQLAccess {
 		count += statement.executeUpdate(query5);
 
 		return count;
+
+
+	}
+
+	public List<Student> convertDbToStudent() throws SQLException {
+		statement = connection.createStatement();
+
+		String query = "SELECT* FROM students";
+
+		resultSet = statement.executeQuery(query);
+
+		ResultSet resultSetState;
+		ResultSet resultSetCity;
+
+
+
+
+		String f_name = "";
+		String l_name = "";
+		String email = "";
+		String genderMorF = "";
+		String gender = "";
+		String mobileNumber = "";
+		String dob = "";
+		String oldDateString = "";
+		String subjects = "";
+		String hobbies = "";
+		String address = "";
+		String state = "";
+		String city = "";
+
+
+		List<Student> studentList = new ArrayList<Student>();
+
+		boolean flag = false;
+		while(resultSet.next())
+		{
+			flag = true;
+
+			f_name = resultSet.getString(2);
+			l_name = resultSet.getString(3);
+			genderMorF = resultSet.getString(4);
+			if(genderMorF.contains("1"))
+			{
+				gender = "Male";
+			}
+			else 
+			{
+				gender = "Female";
+			}
+
+			oldDateString = resultSet.getString(5);
+
+			String Old_Format = "yyyy-MM-dd";
+			String New_Format = "MM/dd/yyyy";
+
+
+			SimpleDateFormat sdf = new SimpleDateFormat(Old_Format);
+
+			try {
+				Date d = sdf.parse(oldDateString);
+				sdf.applyPattern(New_Format);
+				dob = sdf.format(d);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+
+			address = resultSet.getString(6);
+
+			String mobileNumberWithDashLine = resultSet.getString(8);
+			mobileNumber = mobileNumberWithDashLine.replaceAll("-", "");
+
+			Student student = new Student(f_name, l_name, email, gender, mobileNumber, dob, subjects, hobbies, address, state, city);
+
+			/*
+			System.out.println(f_name);
+			System.out.println(l_name);
+			System.out.println(gender);
+			System.out.println(dob);
+			System.out.println(address);
+			System.out.println(mobileNumber);
+			System.out.println("\n");
+			 */
+
+			studentList.add(student);	
+
+
+			if (flag == true) {
+				//System.out.println("\nRecords retrieved and displayed");
+			} else {
+				//System.out.println("Record not found");
+			}
+		}
+
+
+
+
+
+
+
+
+		int iterator1 = 1;
+
+		for(int i = 0; i < 3; i++)
+		{
+
+
+			String queryState = "SELECT c.District FROM city c INNER JOIN students s\r\n"
+					+ "	ON s.city_id = c.ID\r\n"
+					+ "WHERE s.id = " + iterator1 + ";";
+
+			resultSetState = statement.executeQuery(queryState);
+
+			while(resultSetState.next()) {
+				flag = true;
+				studentList.get(i).setState(resultSetState.getString(1));
+			}
+
+			iterator1++;
+
+		}
+		
+		int iterator2 = 1;
+
+		for(int i = 0; i < 3; i++)
+		{
+
+
+			String queryCity = "SELECT c.Name FROM city c INNER JOIN students s\r\n"
+					+ "	ON s.city_id = c.ID\r\n"
+					+ "WHERE s.id = " + iterator2 + ";";
+
+			resultSetCity = statement.executeQuery(queryCity);
+
+			while(resultSetCity.next()) {
+				flag = true;
+				studentList.get(i).setCity(resultSetCity.getString(1));
+			}
+
+			iterator2++;
+
+		}
+
+
+		/*
+		for(int i = 0; i < 3; i++)
+		{
+		System.out.println(studentList.get(i).toString());
+		}
+		*/
+		
+		return studentList;
+
 
 	}
 
