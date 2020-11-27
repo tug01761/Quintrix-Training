@@ -16,7 +16,7 @@ public class ParameterDriven extends DataDrivenTestBase {
 		Student[] studentObject = new Student[3];
 		studentObject[0] = new Student("Mike", "Lauw", "mlauw@gmail.com", "Male", "2654333111", "05/01/1996", "Accounting, Arts", "Reading", "2210 South Street", "NCR", "Delhi");
 		studentObject[1] = new Student("Bob", "Troy", "btroy@gmail.com", "Other", "1234567890", "10/12/2000", "Maths, English", "Sports, Reading", "110 North Street", "Haryana", "Panipat");
-		studentObject[2] = new Student("Kathy", "White", "kwhite@gmail.com", "Female", "5234954032", "12/25/2003", "Computer Science", "Music", "200 Wolf Street", "Rajasthan", "Jaipur");
+		studentObject[2] = new Student("Kathy", "White", "kwhite@gmail.com", "Female", "5234954032", "12/25/2003", "Computer Science", "Music", "200 Wolf Street", "Uttar Pradesh", "Agra");
 
 
 		return studentObject;
@@ -33,7 +33,7 @@ public class ParameterDriven extends DataDrivenTestBase {
 				.setEmail(student.getEmail())
 				.setGender(student.getGender())
 				.setMobileNumber(student.getMobileNumber())
-				.setDOB(student.getDOB())
+				.setDOBWrongFormat(student.getDOB())
 				.setSubjects(student.getSubjects())
 				.setHobbies(student.getHobbies())
 				.setAddress(student.getAddress())

@@ -17,7 +17,7 @@
 				<house>114</house>
 				<street>First Ave</street>
 				<city>Lucknow</city>
-				<state>Uttar Pradesh</<state>>
+				<state>Uttar Pradesh</state>
 				<postalCode>10005</postalCode>
 			</address>
 		</person>
@@ -46,7 +46,7 @@
 		<person>
 			<f_name>John</f_name>
 			<l_name>Hughes</l_name>
-			<dob month="SEPT" day="07" year="1955" />
+			<dob month="SEPTEMBER" day="07" year="1955" />
 			<gender>male</gender>
 			<contact type="mobile">213-915-5365</contact>
 			<subjects>

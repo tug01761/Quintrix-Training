@@ -18,6 +18,8 @@ import framework.TableControlExtension;
 public class DemoFormPage extends PageObjectBase {
 
 
+	String confirmationState = "";
+	String confirmationCity = "";
 
 
 
@@ -102,17 +104,17 @@ public class DemoFormPage extends PageObjectBase {
 
 		Actions actions = new Actions(driver);
 
-		if(input == "Male")
+		if(input.equalsIgnoreCase("Male"))
 		{
 			actions.moveToElement(maleGenderRadio).click().build().perform();
 			//maleGenderRadio.click();
 		}
-		else if(input == "Female")
+		else if(input.equalsIgnoreCase("Female"))
 		{
 			actions.moveToElement(femaleGenderRadio).click().build().perform();
 			//femaleGenderRadio.click();
 		}
-		else if(input =="Other")
+		else if(input.equalsIgnoreCase("Other"))
 		{
 			actions.moveToElement(otherGenderRadio).click().build().perform();
 			//otherGenderRadio.click();
@@ -126,7 +128,7 @@ public class DemoFormPage extends PageObjectBase {
 		return this;
 	}
 
-	public DemoFormPage setDOB(String input) {
+	public DemoFormPage setDOBWrongFormat(String input) {
 
 		String Old_Format = "MM/dd/yyyy";
 		String New_Format = "dd MMMM yyyy";
@@ -155,28 +157,45 @@ public class DemoFormPage extends PageObjectBase {
 		return this;
 	}
 
+	public DemoFormPage setDOBCorrectFormat(String input) {
+
+		dobTextBox.sendKeys(input);
+		for(int i = 0; i < input.length(); i++)
+		{
+			dobTextBox.sendKeys(Keys.ARROW_LEFT);
+		}
+		for(int i = 0; i < 11; i++)
+		{
+			dobTextBox.sendKeys(Keys.BACK_SPACE);
+		}
+		dobTextBox.sendKeys(Keys.ENTER);
+
+
+		return this;
+	}
+
 
 	public DemoFormPage setSubjects(String input) {
-		
+
 		if (input.isEmpty())
 		{
 			return this;
 		}
 		else
 		{
-		String split[] = input.split(", ", 0);
-		
-		
-		for(int i = 0; i < split.length; i++)
-		{
-		subjectsTextBox.sendKeys(split[i]);
+			String split[] = input.split(", ", 0);
 
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		subjectsTextBox.sendKeys(Keys.ENTER);
-		subjectsTextBox.sendKeys(Keys.TAB);
-		}
 
-		return this;
+			for(int i = 0; i < split.length; i++)
+			{
+				subjectsTextBox.sendKeys(split[i]);
+
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				subjectsTextBox.sendKeys(Keys.ENTER);
+				subjectsTextBox.sendKeys(Keys.TAB);
+			}
+
+			return this;
 		}
 	}
 
@@ -187,27 +206,27 @@ public class DemoFormPage extends PageObjectBase {
 		}
 		else
 		{
-		Actions actions = new Actions(driver);
+			Actions actions = new Actions(driver);
 
-		
-		
-		if(input.contains("Sports"))
-		{
-			actions.moveToElement(sportsCheckbox).click().build().perform();
-			//maleGenderRadio.click();
-		}
-		if(input.contains("Reading"))
-		{
-			actions.moveToElement(readingCheckbox).click().build().perform();
-			//femaleGenderRadio.click();
-		}
-		if(input.contains("Music"))
-		{
-			actions.moveToElement(musicCheckbox).click().build().perform();
-			//otherGenderRadio.click();
-		}
 
-		return this;
+
+			if(input.contains("Sports"))
+			{
+				actions.moveToElement(sportsCheckbox).click().build().perform();
+				//maleGenderRadio.click();
+			}
+			if(input.contains("Reading"))
+			{
+				actions.moveToElement(readingCheckbox).click().build().perform();
+				//femaleGenderRadio.click();
+			}
+			if(input.contains("Music"))
+			{
+				actions.moveToElement(musicCheckbox).click().build().perform();
+				//otherGenderRadio.click();
+			}
+
+			return this;
 		}
 	}
 
@@ -245,16 +264,16 @@ public class DemoFormPage extends PageObjectBase {
 		String confirmationEmail = new TableControlExtension(confirmationTable, driver).getRow(2).getCell("Values").getText();
 		String confirmationGender = new TableControlExtension(confirmationTable, driver).getRow(3).getCell("Values").getText();
 		String confirmationMobileNumber = new TableControlExtension(confirmationTable, driver).getRow(4).getCell("Values").getText();
-		
+
 		String confirmationDOB = new TableControlExtension(confirmationTable, driver).getRow(5).getCell("Values").getText();
-		
-		
+
+
 		String Old_Format = "dd MMMM,yyyy";
 		String New_Format = "MM/dd/yyyy";
 		String newDateString = null;
 
 		SimpleDateFormat sdf = new SimpleDateFormat(Old_Format);
-		
+
 		try {
 			Date d = sdf.parse(confirmationDOB);
 			sdf.applyPattern(New_Format);
@@ -262,20 +281,29 @@ public class DemoFormPage extends PageObjectBase {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 		String confirmationSubjects = new TableControlExtension(confirmationTable, driver).getRow(6).getCell("Values").getText();
 		String confirmationHobbies = new TableControlExtension(confirmationTable, driver).getRow(7).getCell("Values").getText();
 		String confirmationAddress = new TableControlExtension(confirmationTable, driver).getRow(9).getCell("Values").getText();
 
-		
-		
+
+
 		String confirmationStateAndCity = new TableControlExtension(confirmationTable, driver).getRow(10).getCell("Values").getText();
 
-		String split2[] = confirmationStateAndCity.split(" ", 0);
-		String confirmationState = split2[0];
-		String confirmationCity = split2[1];
-		
-		 
+		if(confirmationStateAndCity.contains("Uttar Pradesh"))
+		{
+			String split2[] = confirmationStateAndCity.split(" ", 0);
+			confirmationState = split2[0] + " " + split2[1];
+			confirmationCity = split2[2];
+		}
+		else
+		{
+			String split2[] = confirmationStateAndCity.split(" ", 0);
+			confirmationState = split2[0];
+			confirmationCity = split2[1];
+		}
+
+
 		Student confirmationStudent = new Student(confirmationFirstName, confirmationLastName, confirmationEmail, confirmationGender, confirmationMobileNumber, newDateString, confirmationSubjects, confirmationHobbies, confirmationAddress, confirmationState, confirmationCity);
 		return confirmationStudent;
 	}

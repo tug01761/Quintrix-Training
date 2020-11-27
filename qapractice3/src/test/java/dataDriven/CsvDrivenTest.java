@@ -14,7 +14,7 @@ import org.testng.annotations.AfterTest;
 public class CsvDrivenTest extends DataDrivenTestBase {
 
 	@Test
-	public void test() {
+	public void ReadDataFromCSV() {
 		/*
 		CsvDriven csvFile = new CsvDriven();
 		Student student;
@@ -124,7 +124,7 @@ public class CsvDrivenTest extends DataDrivenTestBase {
 						.setEmail(student.getEmail())
 						.setGender(student.getGender())
 						.setMobileNumber(student.getMobileNumber())
-						.setDOB(student.getDOB())
+						.setDOBWrongFormat(student.getDOB())
 						.setSubjects(student.getSubjects())
 						.setHobbies(student.getHobbies())
 						.setAddress(student.getAddress())
