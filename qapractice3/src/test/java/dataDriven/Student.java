@@ -73,6 +73,14 @@ public class Student {
 		return city;
 	}
 	
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
 	public String toString() {
 		return "\nFirst Name: " + f_name + 
 				"\nLast Name: " + l_name + 

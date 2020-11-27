@@ -262,6 +262,7 @@ public class MySQLAccess {
 
 		return count;
 
+
 	}
 
 	public List<Student> convertDbToStudent() throws SQLException {
@@ -271,8 +272,11 @@ public class MySQLAccess {
 
 		resultSet = statement.executeQuery(query);
 
-		
-		
+		ResultSet resultSetState;
+		ResultSet resultSetCity;
+
+
+
 
 		String f_name = "";
 		String l_name = "";
@@ -295,6 +299,7 @@ public class MySQLAccess {
 		while(resultSet.next())
 		{
 			flag = true;
+
 			f_name = resultSet.getString(2);
 			l_name = resultSet.getString(3);
 			genderMorF = resultSet.getString(4);
@@ -328,7 +333,6 @@ public class MySQLAccess {
 			String mobileNumberWithDashLine = resultSet.getString(8);
 			mobileNumber = mobileNumberWithDashLine.replaceAll("-", "");
 
-
 			Student student = new Student(f_name, l_name, email, gender, mobileNumber, dob, subjects, hobbies, address, state, city);
 
 			/*
@@ -339,23 +343,75 @@ public class MySQLAccess {
 			System.out.println(address);
 			System.out.println(mobileNumber);
 			System.out.println("\n");
-			*/
+			 */
 
 			studentList.add(student);	
-			
-			
-		}
-		
-		
 
 
-
-		if (flag == true) {
-			System.out.println("\nRecords retrieved and displayed");
-		} else {
-			System.out.println("Record not found");
+			if (flag == true) {
+				//System.out.println("\nRecords retrieved and displayed");
+			} else {
+				//System.out.println("Record not found");
+			}
 		}
 
+
+
+
+
+
+
+
+		int iterator1 = 1;
+
+		for(int i = 0; i < 3; i++)
+		{
+
+
+			String queryState = "SELECT c.District FROM city c INNER JOIN students s\r\n"
+					+ "	ON s.city_id = c.ID\r\n"
+					+ "WHERE s.id = " + iterator1 + ";";
+
+			resultSetState = statement.executeQuery(queryState);
+
+			while(resultSetState.next()) {
+				flag = true;
+				studentList.get(i).setState(resultSetState.getString(1));
+			}
+
+			iterator1++;
+
+		}
+		
+		int iterator2 = 1;
+
+		for(int i = 0; i < 3; i++)
+		{
+
+
+			String queryCity = "SELECT c.Name FROM city c INNER JOIN students s\r\n"
+					+ "	ON s.city_id = c.ID\r\n"
+					+ "WHERE s.id = " + iterator2 + ";";
+
+			resultSetCity = statement.executeQuery(queryCity);
+
+			while(resultSetCity.next()) {
+				flag = true;
+				studentList.get(i).setCity(resultSetCity.getString(1));
+			}
+
+			iterator2++;
+
+		}
+
+
+		/*
+		for(int i = 0; i < 3; i++)
+		{
+		System.out.println(studentList.get(i).toString());
+		}
+		*/
+		
 		return studentList;
 
 
