@@ -72,7 +72,7 @@ public class MySQLTest {
 	@BeforeTest
 	public void beforeTest() {
 		try {
-			database.connectToDB();
+			database.connectToDB("sakila");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

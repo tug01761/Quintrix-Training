@@ -5,11 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import framework.PageObjectBase;
 import framework.ReactDropdown;
@@ -193,6 +196,7 @@ public class DemoFormPage extends PageObjectBase {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				subjectsTextBox.sendKeys(Keys.ENTER);
 				subjectsTextBox.sendKeys(Keys.TAB);
+				
 			}
 
 			return this;
@@ -236,24 +240,43 @@ public class DemoFormPage extends PageObjectBase {
 	}
 
 	public DemoFormPage setState(String input) {
-		ReactDropdown reactStateDropdown = new ReactDropdown(stateDropdown);
-		reactStateDropdown.selectByText(input);
-		return this;
+		if(input.isEmpty())
+		{
+			return this;
+		}
+		else
+		{
+			ReactDropdown reactStateDropdown = new ReactDropdown(stateDropdown);
+			reactStateDropdown.selectByText(input);
+			return this;
+		}
 	}
 
 	public DemoFormPage setCity(String input) {
-		ReactDropdown reactCityDropdown = new ReactDropdown(cityDropdown);
-		reactCityDropdown.selectByText(input);
-		return this;
+		if(input.isEmpty())
+		{
+			return this;
+		}
+		else
+		{
+			ReactDropdown reactCityDropdown = new ReactDropdown(cityDropdown);
+			reactCityDropdown.selectByText(input);
+			return this;
+		}
 	}
 
 	public DemoFormPage submit() {
-		submitButton.click();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(submitButton).click().build().perform();
+		/*
+		WebDriverWait wait = new WebDriverWait(driver, 5); 
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(submitButton));
+		element.click();
+		*/
 		return this;
 	}
 
 	public Student getConfirmation() {
-
 		String confirmationName = new TableControlExtension(confirmationTable, driver).getRow(1).getCell("Values").getText();
 
 		String split1[] = confirmationName.split(" ", 0);
@@ -295,6 +318,11 @@ public class DemoFormPage extends PageObjectBase {
 			String split2[] = confirmationStateAndCity.split(" ", 0);
 			confirmationState = split2[0] + " " + split2[1];
 			confirmationCity = split2[2];
+		}
+		else if(confirmationStateAndCity.isEmpty())
+		{
+			confirmationState = "";
+			confirmationCity = "";
 		}
 		else
 		{

@@ -143,27 +143,6 @@ public class CsvDrivenTest extends DataDrivenTestBase {
 		}
 		
 
-		
-		/*
-		Student confirmationStudent = new DemoFormPage(driver, baseUrl)
-				.navigate()
-				.setFirstName(student.getFirstName())
-				.setLastName(student.getLastName())
-				.setEmail(student.getEmail())
-				.setGender(student.getGender())
-				.setMobileNumber(student.getMobileNumber())
-				.setDOB(student.getDOB())
-				.setSubjects(student.getSubjects())
-				.setHobbies(student.getHobbies())
-				.setAddress(student.getAddress())
-				.setState(student.getState())
-				.setCity(student.getCity())
-				.submit()
-				.getConfirmation();
-
-		Assert.assertEquals(confirmationStudent.toString(), student.toString());
-		*/
-
 	}
 
 	@BeforeTest
