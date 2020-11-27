@@ -8,13 +8,13 @@ public class Student {
 	private String gender;
 	private String mobile_number;
 	private String dob;
-	private String subject;
+	private String subjects;
 	private String hobbies;
 	private String address;
 	private String state;
 	private String city;
 	
-	public Student(String f_name, String l_name, String email, String gender, String mobile_number, String dob, String subject, String hobbies, String address, String state, String city)
+	public Student(String f_name, String l_name, String email, String gender, String mobile_number, String dob, String subjects, String hobbies, String address, String state, String city)
 	{
 		this.f_name = f_name;
 		this.l_name = l_name;
@@ -22,7 +22,7 @@ public class Student {
 		this.gender = gender;
 		this.mobile_number = mobile_number;
 		this.dob = dob;
-		this.subject = subject;
+		this.subjects = subjects;
 		this.hobbies = hobbies;
 		this.address = address;
 		this.state = state;
@@ -53,8 +53,8 @@ public class Student {
 		return dob;
 	}
 	
-	public String getSubject() {
-		return subject;
+	public String getSubjects() {
+		return subjects;
 	}
 	
 	public String getHobbies() {
@@ -71,6 +71,20 @@ public class Student {
 	
 	public String getCity() {
 		return city;
+	}
+	
+	public String toString() {
+		return "\nFirst Name: " + f_name + 
+				"\nLast Name: " + l_name + 
+				"\nEmail Address: " + email + 
+				"\nMobile Number: " + mobile_number + 
+				"\nDOB: " + dob + 
+				"\nSubjects: " + subjects +
+				"\nHobbies: " + hobbies + 
+				"\nAddress: " + address +
+				"\nState: " + state +
+				"\nCity: " + city
+				+"\n";
 	}
 
 }
