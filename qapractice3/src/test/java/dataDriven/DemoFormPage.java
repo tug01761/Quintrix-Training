@@ -158,6 +158,12 @@ public class DemoFormPage extends PageObjectBase {
 
 	public DemoFormPage setSubjects(String input) {
 		
+		if (input.isEmpty())
+		{
+			return this;
+		}
+		else
+		{
 		String split[] = input.split(", ", 0);
 		
 		
@@ -171,9 +177,16 @@ public class DemoFormPage extends PageObjectBase {
 		}
 
 		return this;
+		}
 	}
 
 	public DemoFormPage setHobbies(String input) {
+		if(input.isEmpty())
+		{
+			return this;
+		}
+		else
+		{
 		Actions actions = new Actions(driver);
 
 		
@@ -195,6 +208,7 @@ public class DemoFormPage extends PageObjectBase {
 		}
 
 		return this;
+		}
 	}
 
 	public DemoFormPage setAddress(String input) {
