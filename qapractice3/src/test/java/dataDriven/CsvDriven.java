@@ -1,17 +1,17 @@
 package dataDriven;
 
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.opencsv.CSVReader;
 
 public class CsvDriven {
 
-	
-	Student student;
+	public List<Student> convertCSVtoStudent(String filePath) {
 
-
-	public Student convertCSVtoStudent(String filePath) {
-
+		List<Student> studentList = new ArrayList<Student>();
+		
 		try
 		{
 			CSVReader reader = new CSVReader(new FileReader(filePath));
@@ -25,28 +25,28 @@ public class CsvDriven {
 				String firstName = split1[1];
 				String lastName = split1[0];
 
-				
+
 				String split2[] = nextLine[1].split("/", 0);
 				String dayBefore = split2[0];
 				String monthBefore = split2[1];
 				String year = split2[2];
-				
+
 				String dayAfter = dayBefore;
 				String monthAfter = monthBefore;
-				
+
 				if(Integer.parseInt(dayBefore)< 10)
 				{
 					dayAfter = "0" + dayBefore;
 				}
-				
+
 				if(Integer.parseInt(monthBefore)< 10)
 				{
 					monthAfter = "0" + monthBefore;
 				}
-				
+
 				String dob = dayAfter + "/" + monthAfter + "/" + year;
 
-				
+
 
 				String email = nextLine[2];
 
@@ -61,7 +61,7 @@ public class CsvDriven {
 
 				String genderAbbrv = nextLine[9];
 				String gender;
-				
+
 				if(genderAbbrv.equals("M"))
 				{
 					gender = "Male";
@@ -104,16 +104,20 @@ public class CsvDriven {
 
 				}
 
-				student = new Student(firstName, lastName, email, gender, mobileNumber, dob, subjects, hobbies, address, state, city);
-					
-				return student;
+				Student student = new Student(firstName, lastName, email, gender, mobileNumber, dob, subjects, hobbies, address, state, city);
+
+				studentList.add(student);
 			}  
 		}  
 		catch (Exception e)   
 		{  
 			e.printStackTrace();  
 		}
-		return student;  
+		for(int i = 0; i < studentList.size(); i++)
+		{
+		System.out.println(studentList.get(i).toString());
+		}
+		return studentList;  
 	}  
 
 }
