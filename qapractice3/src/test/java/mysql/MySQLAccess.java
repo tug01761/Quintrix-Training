@@ -405,12 +405,12 @@ public class MySQLAccess {
 		}
 
 
-		/*
+		
 		for(int i = 0; i < 3; i++)
 		{
 		System.out.println(studentList.get(i).toString());
 		}
-		*/
+		
 		
 		return studentList;
 
