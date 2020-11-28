@@ -18,14 +18,12 @@ public class MySQLAccess {
 
 	public void connectToDB(String server) throws Exception {
 		try {
-			// register Oracle thin driver with DriverManager service
-			// It is optional for JDBC4.x version
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// variables
 			final String url = "jdbc:mysql:///" + server;
-			final String user = "root";
-			final String password = "totot6244230";
+			final String user = "";
+			final String password = "";
 
 			// establish the connection
 			connection = DriverManager.getConnection(url, user, password);
