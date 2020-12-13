@@ -22,7 +22,7 @@ public class DataDrivenTestBase extends TestBase{
 			throw new RuntimeException("Config file does not exist.");
 		}
 
-		driverManager = DriverManagerFactory.getManager(configs.get(ConfigurationParameters.Firefox));
+		driverManager = DriverManagerFactory.getManager(configs.get(ConfigurationParameters.browserType));
 		driver = driverManager.startService();
 
 		this.baseUrl = configs.get(ConfigurationParameters.UrlDataDriven);		

@@ -24,6 +24,7 @@ public class MultipleWindowsPageTest extends TheInternetTestBase{
 
 
 		Assert.assertEquals(selectedUrl, expectedUrl);
+		
 	}
 
 	@BeforeTest

@@ -57,13 +57,6 @@ public class DynamicControlsPage extends PageObjectBase {
 			}
 		});
 
-
-
-			//wait.until(alertMessage.getText() == "It's enabled!");
-			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='text']")));
-
-			//driver.findElement(By.cssSelector("input[type='text']")).sendKeys("It's working now!");
-
 			return this;
 		}
 
