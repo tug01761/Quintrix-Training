@@ -1,11 +1,14 @@
 package cucumber.stepdefs;
 
+import org.testng.Assert;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import dataDriven.DataDrivenTestBase;
 import dataDriven.DemoFormPage;
+import dataDriven.Student;
 
 
 public class stepDefinitionsDataDriven extends DataDrivenTestBase{
@@ -93,7 +96,23 @@ public class stepDefinitionsDataDriven extends DataDrivenTestBase{
 	@And("^I will verify that I put the correct informations$")
 	public void assertion() throws Throwable {
 		DemoFormPage demoForm = new DemoFormPage(driver, baseUrl);
-		System.out.println(demoForm.getConfirmation().toString());
+		
+		Student studentMike = new Student("Mike", "Lauw", "mlauw@gmail.com", "Male", "2654333111", "05/01/1996", "Accounting, Arts", "Reading", "2210 South Street", "NCR", "Delhi");
+		Student studentBob = new Student("Bob", "Troy", "btroy@gmail.com", "Other", "1234567890", "10/12/2000", "Maths, English", "Sports, Reading", "110 North Street", "Haryana", "Panipat");
+		Student studentKathy = new Student("Kathy", "White", "kwhite@gmail.com", "Female", "5234954032", "12/25/2003", "Computer Science", "Music", "200 Wolf Street", "Uttar Pradesh", "Agra");
+		
+		if (demoForm.getConfirmation().getFirstName() == studentMike.getFirstName())
+		{
+			Assert.assertEquals(demoForm.getConfirmation().toString(), studentMike.toString());
+		}
+		else if(demoForm.getConfirmation().getFirstName() == studentBob.getFirstName())
+		{
+			Assert.assertEquals(demoForm.getConfirmation().toString(), studentBob.toString());
+		}
+		else if(demoForm.getConfirmation().getFirstName() == studentKathy.getFirstName())
+		{
+			Assert.assertEquals(demoForm.getConfirmation().toString(), studentKathy.toString());
+		}
 		
 		super.afterTest();
 	}
